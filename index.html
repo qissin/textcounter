@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字数計算器</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="https://qissin.github.io/pages" class="copyright">&copy; 2024 qissin</a>
+
+    <p class="ttl">字数計算器</p>
+    <div class="description">
+        <p class="howtouse_ttl">使い方</p>
+        <p class="howtouse">
+            壱&nbsp;:&emsp;右下の入力欄にテキストを入力、または貼り付けてください<br>
+            弐&nbsp;:&emsp;テキストを入力次第、左下の表に反映されます<br>
+            参&nbsp;:&emsp;入力したテキストをコピーしたい場合、コピーボタンを押してください<br>
+            肆&nbsp;:&emsp;違うテキストで検証する際は、全消去ボタンを押してください
+        </p>
+    </div>
+    <div class="main">
+        <table>
+            <tr>
+                <td>改行・空白を除く</td>
+                <td id="none">0</td>
+                <td>字</td>
+            </tr>
+            <tr>
+                <td>空白を含む</td>
+                <td id="space">0</td>
+                <td>字</td>
+            </tr>
+            <tr>
+                <td>改行・空白を含む</td>
+                <td id="all">0</td>
+                <td>字</td>
+            </tr>
+            <tr>
+                <td>行数</td>
+                <td id="lines">1</td>
+                <td>行</td>
+            </tr>
+            <tr>
+                <td>原稿用紙(400字)</td>
+                <td id="manuscript">0</td>
+                <td>枚</td>
+            </tr>
+        </table>
+        <div class="text">
+            <a id="paste" title="貼り付け">
+                <svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
+                    <g transform="matrix(1 0 0 1 12 12)" ><path transform=" translate(-12, -11)" d="M 12 1 C 10.696 1 9.5965937 1.837 9.1835938 3 L 5 3 C 3.895 3 3 3.895 3 5 L 3 19 C 3 20.105 3.895 21 5 21 L 19 21 C 20.105 21 21 20.105 21 19 L 21 5 C 21 3.895 20.105 3 19 3 L 14.816406 3 C 14.403406 1.837 13.304 1 12 1 z M 12 3 C 12.552 3 13 3.448 13 4 C 13 4.414 12.747547 4.77 12.388672 4.921875 L 12 5 L 11.611328 4.921875 C 11.252453 4.77 11 4.414 11 4 C 11 3.448 11.448 3 12 3 z M 5 5 L 7 5 L 7 6 C 7 6.552 7.448 7 8 7 L 16 7 C 16.552 7 17 6.552 17 6 L 17 5 L 19 5 L 19 19 L 5 19 L 5 5 z" stroke-linecap="round" /></g>
+                </svg>
+            </a>
+            <a id="copy" title="コピー">
+                <svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
+                    <g transform="matrix(1 0 0 1 12 12)" ><path transform=" translate(-12, -12)" d="M 4 2 C 2.895 2 2 2.895 2 4 L 2 17 C 2 17.552 2.448 18 3 18 C 3.552 18 4 17.552 4 17 L 4 4 L 17 4 C 17.552 4 18 3.552 18 3 C 18 2.448 17.552 2 17 2 L 4 2 z M 8 6 C 6.895 6 6 6.895 6 8 L 6 20 C 6 21.105 6.895 22 8 22 L 20 22 C 21.105 22 22 21.105 22 20 L 22 8 C 22 6.895 21.105 6 20 6 L 8 6 z M 8 8 L 20 8 L 20 20 L 8 20 L 8 8 z" stroke-linecap="round"></g>
+                </svg>
+            </a>
+            <a id="clear" title="全消去">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M7.10002 5H3C2.44772 5 2 5.44772 2 6C2 6.55228 2.44772 7 3 7H4.06055L4.88474 20.1871C4.98356 21.7682 6.29471 23 7.8789 23H16.1211C17.7053 23 19.0164 21.7682 19.1153 20.1871L19.9395 7H21C21.5523 7 22 6.55228 22 6C22 5.44772 21.5523 5 21 5H19.0073C19.0018 4.99995 18.9963 4.99995 18.9908 5H16.9C16.4367 2.71776 14.419 1 12 1C9.58104 1 7.56329 2.71776 7.10002 5ZM9.17071 5H14.8293C14.4175 3.83481 13.3062 3 12 3C10.6938 3 9.58254 3.83481 9.17071 5ZM17.9355 7H6.06445L6.88085 20.0624C6.91379 20.5894 7.35084 21 7.8789 21H16.1211C16.6492 21 17.0862 20.5894 17.1192 20.0624L17.9355 7ZM14.279 10.0097C14.83 10.0483 15.2454 10.5261 15.2068 11.0771L14.7883 17.0624C14.7498 17.6134 14.2719 18.0288 13.721 17.9903C13.17 17.9517 12.7546 17.4739 12.7932 16.9229L13.2117 10.9376C13.2502 10.3866 13.7281 9.97122 14.279 10.0097ZM9.721 10.0098C10.2719 9.97125 10.7498 10.3866 10.7883 10.9376L11.2069 16.923C11.2454 17.4739 10.83 17.9518 10.2791 17.9903C9.72811 18.0288 9.25026 17.6134 9.21173 17.0625L8.79319 11.0771C8.75467 10.5262 9.17006 10.0483 9.721 10.0098Z"></path>
+                </svg>
+            </a>
+            <textarea id="textarea" placeholder="テキストを入力、または貼り付けてください"></textarea>
+        </div>
+    </div>
+
+    <div id="paste_popup">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
+            <path d="M8.5 12.5L10.5 14.5L15.5 9.5"  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M7 3.33782C8.47087 2.48697 10.1786 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.1786 2.48697 8.47087 3.33782 7" stroke-width="1.5" stroke-linecap="round"></path>
+        </svg>
+        <p>クリップボードから入力欄へ貼り付けました</p>
+    </div>
+    <div id="copy_popup">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
+            <path d="M8.5 12.5L10.5 14.5L15.5 9.5"  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M7 3.33782C8.47087 2.48697 10.1786 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.1786 2.48697 8.47087 3.33782 7" stroke-width="1.5" stroke-linecap="round"></path>
+        </svg>
+        <p>入力欄の内容をクリップボードへコピーしました</p>
+    </div>
+    <div id="clear_popup">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
+            <path d="M8.5 12.5L10.5 14.5L15.5 9.5"  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M7 3.33782C8.47087 2.48697 10.1786 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.1786 2.48697 8.47087 3.33782 7" stroke-width="1.5" stroke-linecap="round"></path>
+        </svg>
+        <p>入力欄の内容をすべて消去しました</p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+
+        //#none
+        $('#textarea').on('input', function(){
+            var text_none = $(this).val().replace(/[\s\n]+/g, '');
+            var count_none = text_none.length;
+            $('#none').text(count_none);
+        });
+
+        //#space
+        $('#textarea').on('input', function(){
+            var text_space = $(this).val().replace(/\n+/g, '');
+            var count_space = text_space.length;
+            $('#space').text(count_space);
+        });
+
+        //#all
+        $('#textarea').on('input', function(){
+            var text_all = $(this).val();
+            var count_all = text_all.length;
+            $('#all').text(count_all);
+        });
+        
+        //#lines
+        $('#textarea').on('input', function(){
+            var text_lines = $(this).val();
+            var count_lines = text_lines.split(/\r\n|\r|\n/).length;
+            $('#lines').text(count_lines);
+        });
+
+        //#manuscript
+        $('#textarea').on('input', function(){
+            var text_manuscript = $(this).val();
+            var count_manuscript = text_manuscript.length /400;
+            $('#manuscript').text(Math.ceil(count_manuscript));
+        });
+
+
+        //#paste
+        $('#paste').click(function(){
+            var textareaTXT = $('#textarea').val()
+            navigator.clipboard.readText()
+            .then(textToPaste => {
+                $('#textarea').val(textareaTXT + textToPaste);
+            });
+            $('#paste_popup').addClass('active');
+            $('#copy_popup').removeClass('active');
+            $('#clear_popup').removeClass('active');
+
+            setTimeout(() => {
+                $('#paste_popup').removeClass('active');
+            }, 1000);
+        });
+
+        //#copy
+        $('#copy').click(function(){
+            var textToCopy = $('#textarea').val();
+            navigator.clipboard.writeText(textToCopy);
+            $('#paste_popup').removeClass('active');
+            $('#copy_popup').addClass('active');
+            $('#clear_popup').removeClass('active');
+
+            setTimeout(() => {
+                $('#copy_popup').removeClass('active');
+            }, 1000);
+        });
+
+        //#clear
+        $('#clear').click(function() {
+            $('#textarea').val('');
+            $('#paste_popup').removeClass('active');
+            $('#copy_popup').removeClass('active');
+            $('#clear_popup').addClass('active');
+
+            setTimeout(() => {
+                $('#clear_popup').removeClass('active');
+            }, 1000);
+        })
+    </script>
+</body>
+</html>

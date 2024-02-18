@@ -1,0 +1,230 @@
+@import url("https://fonts.googleapis.com/css2?family=Yuji+Syuku&family=Zen+Kaku+Gothic+New:wght@600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  color: #000;
+  overflow: hidden;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+html {
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+}
+body::-webkit-scrollbar {
+  width: 10px;
+}
+body::-webkit-scrollbar-track {
+  background-color: #bbb;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #444;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  background-clip: padding-box;
+}
+body::-webkit-scrollbar-thumb:hover {
+  background-color: #222;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  place-content: center;
+}
+
+a.copyright {
+  display: block;
+  position: absolute;
+  left: 50%;
+  translate: -50%;
+  top: 0;
+  font-family: "zen kaku gothic new", sans-serif;
+  color: #00a;
+}
+
+p.ttl {
+  font-size: 3rem;
+  font-family: "yuji syuku", sans-serif;
+  font-weight: 400;
+  padding-bottom: 1rem;
+}
+
+.description {
+  position: relative;
+  text-align: center;
+  padding-top: 2rem;
+}
+.description p.howtouse_ttl {
+  font-size: 2rem;
+  font-family: "yuji syuku", sans-serif;
+  font-weight: 400;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  translate: -50%;
+  background-color: #fff;
+  padding-inline: 0.5em;
+}
+.description p.howtouse {
+  font-size: 1.2rem;
+  font-family: "yuji syuku", sans-serif;
+  font-weight: 400;
+  text-align: left;
+  border: 1px solid #aaa;
+  padding: 0.5em 1.3em;
+}
+
+.main {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5%;
+  width: 90vw;
+  height: 40vh;
+  margin-top: 2.5rem;
+}
+.main table {
+  width: 30%;
+  height: 40vh;
+  box-sizing: border-box;
+  border-collapse: collapse;
+}
+.main table tr:first-child {
+  border-top: 1px solid #aaa;
+}
+.main table tr td {
+  font-size: 1.3rem;
+  font-family: "yuji syuku", sans-serif;
+  font-weight: 400;
+  box-sizing: border-box;
+  border-bottom: 1px solid #aaa;
+}
+.main table tr td:nth-child(1) {
+  width: 65%;
+  border-right: 1px solid #aaa;
+  padding-inline: 1em;
+}
+.main table tr td:nth-child(2) {
+  width: 30%;
+  font-family: "roboto mono", sans-serif;
+  padding-inline: 0.5em 0.2em;
+  -webkit-user-select: all;
+     -moz-user-select: all;
+          user-select: all;
+  cursor: pointer;
+}
+.main table tr td:nth-child(3) {
+  width: 5%;
+  font-family: "yuji syuku", sans-serif;
+  padding-right: 0.5em;
+}
+.main .text {
+  width: 65%;
+  height: 100%;
+}
+.main .text a {
+  display: grid;
+  place-items: center;
+  position: absolute;
+  right: calc(65% - 1px);
+  width: 35px;
+  aspect-ratio: 1/1;
+  border: 1px solid #aaa;
+  background-color: #eee;
+  cursor: pointer;
+  transition: all 0.15s ease-out;
+}
+.main .text a svg {
+  height: 25px;
+  fill: #000;
+}
+.main .text a:hover {
+  background-color: #aaa;
+}
+.main .text a#paste {
+  top: 0;
+  border-radius: 0.5rem 0 0 0.5rem;
+}
+.main .text a#copy {
+  bottom: 35px;
+  border-radius: 0.5rem 0 0 0;
+}
+.main .text a#clear {
+  bottom: 0;
+  border-radius: 0 0 0 0.5rem;
+}
+.main .text a#clear svg {
+  fill: #f00;
+}
+.main .text textarea {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #aaa;
+  box-sizing: border-box;
+  outline: none;
+  background-color: transparent;
+  box-sizing: border-box;
+  padding: 0.5em;
+  padding-right: calc(0.5em + 8px);
+  font-size: 0.99rem;
+  font-family: sans-serif;
+  resize: none;
+  border-radius: 0 0.5rem 0.5rem 0;
+  overflow-y: auto;
+  box-shadow: inset 0 0 10px -7px #000;
+}
+.main .text textarea::-webkit-scrollbar {
+  width: 8px;
+}
+.main .text textarea::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+.main .text textarea::-webkit-scrollbar-thumb {
+  background-color: #666;
+  border-inline: 2px solid transparent;
+  border-block: 3px solid transparent;
+  background-clip: content-box;
+  border-radius: 100px;
+}
+
+[id*=popup] {
+  position: absolute;
+  top: 0;
+  width: 50vw;
+  height: 50px;
+  background-color: #f9f9f9;
+  border-inline: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  translate: 0 -60px;
+  transition: all 0.35s cubic-bezier(0, 0.591, 0.417, 1);
+}
+[id*=popup] svg {
+  height: 30px;
+  stroke: #5b5;
+}
+[id*=popup] p {
+  font-size: 1.1rem;
+  color: #000;
+  font-family: "yuji syuku";
+  font-weight: 400;
+}
+[id*=popup].active {
+  translate: 0 0;
+}/*# sourceMappingURL=style.css.map */
